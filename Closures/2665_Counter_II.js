@@ -1,10 +1,20 @@
-/*
-LeetCode Problem:
-Problem Number: 2665
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @param {number} init
+ * @return {Object}
+ */
+var createCounter = function(init) {
+    let current = init;
 
-// Implement solution here
+    return {
+        increment: function() {
+            return ++current;
+        },
+        decrement: function() {
+            return --current;
+        },
+        reset: function() {
+            current = init;
+            return current;
+        }
+    };
+};
