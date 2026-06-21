@@ -1,10 +1,14 @@
-/*
-LeetCode Problem:
-Problem Number: 2635
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+var map = function(arr, fn) {
+    let result = [];
 
-// Implement solution here
+    for (let i = 0; i < arr.length; i++) {
+        result.push(fn(arr[i], i));
+    }
+
+    return result;
+};
