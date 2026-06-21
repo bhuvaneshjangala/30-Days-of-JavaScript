@@ -1,10 +1,14 @@
-/*
-LeetCode Problem:
-Problem Number: 2667
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @return {Function}
+ */
+var createHelloWorld = function() {
+    
+    return function(...args) {
+        return "Hello World";
+    }
+};
 
-// Implement solution here
+/**
+ * const f = createHelloWorld();
+ * f(); // "Hello World"
+ */
