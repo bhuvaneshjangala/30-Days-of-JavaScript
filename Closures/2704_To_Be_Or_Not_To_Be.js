@@ -1,10 +1,21 @@
-/*
-LeetCode Problem:
-Problem Number: 2704
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @param {any} val
+ * @return {Object}
+ */
+var expect = function(val) {
+    return {
+        toBe: function(compareVal) {
+            if (val === compareVal) return true;
+            throw new Error("Not Equal");
+        },
+        notToBe: function(compareVal) {
+            if (val !== compareVal) return true;
+            throw new Error("Equal");
+        }
+    };
+};
 
-// Implement solution here
+/**
+ * expect(5).toBe(5); // true
+ * expect(5).notToBe(5); // throws "Equal"
+ */
