@@ -1,10 +1,11 @@
-/*
-LeetCode Problem:
-Problem Number: 2703
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @param {...(null|boolean|number|string|Array|Object)} args
+ * @return {number}
+ */
+var argumentsLength = function(...args) {
+    return args.length;
+};
 
-// Implement solution here
+/**
+ * argumentsLength(1, 2, 3); // 3
+ */
