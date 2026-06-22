@@ -1,16 +1,15 @@
 /**
- * @param {number[]} arr
+ * @param {number[]} nums
  * @param {Function} fn
- * @return {number[]}
+ * @param {number} init
+ * @return {number}
  */
-var filter = function(arr, fn) {
-    const filteredArr = [];
+var reduce = function(nums, fn, init) {
+    let result = init;
 
-    for (let i = 0; i < arr.length; i++) {
-        if (fn(arr[i], i)) {
-            filteredArr.push(arr[i]);
-        }
+    for (let i = 0; i < nums.length; i++) {
+        result = fn(result, nums[i]);
     }
 
-    return filteredArr;
+    return result;
 };
