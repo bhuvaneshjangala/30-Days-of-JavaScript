@@ -1,10 +1,12 @@
-/*
-LeetCode Problem:
-Problem Number: 2621
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
+    return new Promise(resolve => setTimeout(resolve, millis));
+}
 
-// Implement solution here
+/** 
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
