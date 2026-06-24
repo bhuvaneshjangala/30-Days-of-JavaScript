@@ -1,37 +1,45 @@
-class Calculator {
-    constructor(value) {
-        this.result = value;
+class EventEmitter {
+
+    constructor() {
+        this.events = {};
     }
 
-    add(value) {
-        this.result += value;
-        return this;
-    }
+    /**
+     * @param {string} eventName
+     * @param {Function} callback
+     * @return {Object}
+     */
+    subscribe(eventName, callback) {
 
-    subtract(value) {
-        this.result -= value;
-        return this;
-    }
-
-    multiply(value) {
-        this.result *= value;
-        return this;
-    }
-
-    divide(value) {
-        if (value === 0) {
-            throw new Error("Division by zero is not allowed");
+        if (!this.events[eventName]) {
+            this.events[eventName] = [];
         }
-        this.result /= value;
-        return this;
+
+        this.events[eventName].push(callback);
+
+        return {
+            unsubscribe: () => {
+                this.events[eventName] =
+                    this.events[eventName].filter(
+                        cb => cb !== callback
+                    );
+            }
+        };
     }
 
-    power(value) {
-        this.result **= value;
-        return this;
-    }
+    /**
+     * @param {string} eventName
+     * @param {Array} args
+     * @return {Array}
+     */
+    emit(eventName, args = []) {
 
-    getResult() {
-        return this.result;
+        if (!this.events[eventName]) {
+            return [];
+        }
+
+        return this.events[eventName].map(
+            callback => callback(...args)
+        );
     }
 }
