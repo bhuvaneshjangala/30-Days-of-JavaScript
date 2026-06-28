@@ -1,10 +1,36 @@
-/*
-LeetCode Problem:
-Problem Number: 2721
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @param {Array<Function>} functions
+ * @return {Promise<any>}
+ */
+var promiseAll = function(functions) {
 
-// Implement solution here
+    return new Promise((resolve, reject) => {
+
+        const results = [];
+        let completed = 0;
+
+        functions.forEach((fn, index) => {
+
+            fn()
+                .then((value) => {
+
+                    results[index] = value;
+                    completed++;
+
+                    if (completed === functions.length) {
+                        resolve(results);
+                    }
+
+                })
+                .catch(reject);
+
+        });
+
+    });
+
+};
+
+/**
+ * const promise = promiseAll([() => new Promise(res => res(42))])
+ * promise.then(console.log); // [42]
+ */
