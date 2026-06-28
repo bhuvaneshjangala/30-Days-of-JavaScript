@@ -1,10 +1,15 @@
-/*
-LeetCode Problem:
-Problem Number: 2677
-Difficulty:
-Approach:
-Time Complexity:
-Space Complexity:
-*/
+/**
+ * @param {Array} arr
+ * @param {number} size
+ * @return {Array}
+ */
+var chunk = function(arr, size) {
 
-// Implement solution here
+    const result = [];
+
+    for (let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+
+    return result;
+};
